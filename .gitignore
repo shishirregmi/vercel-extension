@@ -1,0 +1,32 @@
+
+# Node
+node_modules/
+dist/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env/Secrets
+.env
+.env.*
+*.local
+
+# Extension packaging
+*.vsix
+
+# TypeScript
+*.tsbuildinfo
+
+# Misc
+coverage/
+
+# Ignore test output
+*.test-results.json
+
+# Ignore workspace settings
+*.code-workspace

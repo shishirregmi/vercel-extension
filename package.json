@@ -1,0 +1,89 @@
+{
+  "name": "vercel-status",
+  "displayName": "Vercel Status",
+  "description": "View Vercel project and deployment status, and trigger actions from VS Code.",
+  "version": "0.0.1",
+  "publisher": "shishirregmi",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vercelContainer",
+          "title": "Vercel",
+          "icon": "media/vercel.svg"
+        }
+      ]
+    },
+    "views": {
+      "vercelContainer": [
+        {
+          "id": "vercelProjects",
+          "name": "Projects",
+          "icon": "media/vercel.svg"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "vercel.refresh",
+        "title": "Vercel: Refresh"
+      },
+      {
+        "command": "vercel.redeployLatest",
+        "title": "Vercel: Redeploy Latest"
+      },
+      {
+        "command": "vercel.cancelDeployment",
+        "title": "Vercel: Cancel Deployment"
+      },
+      {
+        "command": "vercel.removeEnvVar",
+        "title": "Vercel: Delete Environment Variable"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "vercel.refresh",
+          "when": "view == vercelProjects",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "vercel.redeployLatest",
+          "when": "viewItem == vercelDeployment_redeploy",
+          "group": "inline"
+        },
+        {
+          "command": "vercel.cancelDeployment",
+          "when": "viewItem == vercelDeployment_cancel",
+          "group": "inline"
+        },
+        {
+          "command": "vercel.removeEnvVar",
+          "when": "viewItem == vercelEnvVar",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "package": "npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.4.5"
+  }
+}
