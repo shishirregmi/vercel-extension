@@ -2,7 +2,7 @@
   "name": "vercel-status",
   "displayName": "Vercel Manager for VS Code",
   "description": "View Vercel project and deployment status, and trigger actions from VS Code.",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "publisher": "ShishirRegmi",
   "repository": "https://github.com/shishirregmi/vercel-extension",
   "engines": {
